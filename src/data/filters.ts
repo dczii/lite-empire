@@ -1,4 +1,4 @@
-export const MonetizationList =  ["Affiliate",
+export const MonetizationList: Array<string> =  ["Affiliate",
   "Amazon Associates",
   "Amazon FBA",
   "Amazon FBM",
@@ -17,3 +17,30 @@ export const MonetizationList =  ["Affiliate",
   "Subscription",
   "Subscription-Box"
 ]
+
+export const columnList: IColumnList ={
+  listing: true,
+  nicheStatus: true,
+  status: true,
+  price: true,
+  monthlyNetProfit: true,
+  rfs: true,
+  risk: true,
+  countries: true,
+  businessCreated: true,
+}
+
+export const columnListTranslate: Record<
+keyof typeof columnKeys,
+string
+> = {
+  listing: 'Listing',
+  nicheStatus: 'Niche Status',
+  status: 'Status',
+  price: 'Price',
+  monthlyNetProfit: 'Monthly Net Profit',
+  rfs: 'Reason For Sale',
+  risk: 'Risk',
+  countries: 'Countries',
+  businessCreated: 'Business Created'
+}

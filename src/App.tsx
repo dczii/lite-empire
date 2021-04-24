@@ -11,14 +11,10 @@ function App() {
   const globalState = useGlobalContext()
   const {dispatch, state} = globalState;
 
-  const isLoading = state.isLoading
+  const isLoading = state?.isLoading
   
   useEffect(() => {
     async function fetchData() {
-      await dispatch({
-        type: 'Set__Loading',
-      })
-
       const url = urlGenerator({
         page: 1,
         limit: 20
@@ -36,10 +32,6 @@ function App() {
             count: data.count,
             limit: 20
           }
-        })
-
-        dispatch({
-          type: 'Set__Loading',
         })
       })
     }

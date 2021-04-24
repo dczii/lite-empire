@@ -41,15 +41,13 @@ export default function Filters(){
         dispatch({
           type: 'Set__Listings',
           data: {
+            ...data,
             listings: data?.listings,
             monetization: activeMonetization,
             priceRange: priceRange,
-            niches: niches
+            niches: niches,
+            page: 1
           }
-        })
-
-        dispatch({
-          type: 'Set__Loading',
         })
       })
   }

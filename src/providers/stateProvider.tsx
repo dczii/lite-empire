@@ -1,8 +1,14 @@
 import React, { useReducer, createContext, useContext }  from 'react';
+import { columnList } from '../data/filters'
 
 const initialState = {
   state: {
-    isLoading: false,
+    isLoading: true,
+    visibleColumns: columnList,
+    data: {
+      currentPage: 1,
+      limit: 20,
+    }
   },
   dispatch: () => {}
 };
@@ -14,15 +20,24 @@ const initialState = {
     const [state, dispatch] = useReducer((state: any, action: any) => {
       switch(action.type) {
         case 'Set__Listings':
-          console.log('action.data',action.data)
           return {
-            ...state,
-            ...action.data
+            ...state.state,
+            data: {
+              ...state.data,
+              ...action.data
+            },
+            isLoading: false
           }
         case 'Set__Loading':
           return {
             ...state,
             isLoading: !state?.isLoading
+          }
+        case 'Set__Visible_Columns':
+          return {
+            ...state,
+            visibleColumns: action.data,
+            isLoading: false
           }
         default:
           throw new Error();
